@@ -19,6 +19,14 @@ function Player(props) {
     return cleanup;
   }, []);
 
+  useEffect(() => {
+    console.log('Player updated');
+
+    const newTop = getNewPosition(props.top, arrowKeyCodes.down, arrowKeyCodes.up, props.containerHeight);
+    const newLeft = getNewPosition(props.left, arrowKeyCodes.right, arrowKeyCodes.left, props.containerWidth);
+    props.onPositionChange(newTop, newLeft);
+  }, [keysPressed])
+
   return (
     <div
       className="Player"
@@ -36,8 +44,11 @@ function Player(props) {
     </div>
   );
 
-  function getNewPosition(currentPosition, addKey, subtractKey) {
-
+  function getNewPosition(currentPosition, addKey, subtractKey, maxValue) {
+    var newPosition = parseInt(currentPosition, 10)
+      - (keysPressed[subtractKey] ? moveDistancePerInterval : 0)
+      + (keysPressed[addKey] ? moveDistancePerInterval : 0);
+    return newPosition < 0 ? 0 : newPosition > maxValue ? maxValue : newPosition;
   }
 
   function keydownHandler({ which }) {

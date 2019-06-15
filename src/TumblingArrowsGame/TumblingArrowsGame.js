@@ -39,22 +39,22 @@ function TumblingArrayGame() {
     return cleanup;
   }, []);
 
-  useEffect(() => {
-    console.log('Game updated');
+  // useEffect(() => {
+  //   console.log('Game updated');
 
-    const { clientHeight, clientWidth } = gameWrapperElRef.current;
+  //   const { clientHeight, clientWidth } = gameWrapperElRef.current;
 
-    setGameDimensions({
-      height: clientHeight,
-      width: clientWidth
-    });
+  //   setGameDimensions({
+  //     height: clientHeight,
+  //     width: clientWidth
+  //   });
 
-    // Reset the position as game dimensions changed
-    setPlayerPosition({
-      left: clientWidth / 2,
-      top: clientHeight / 2
-    });
-  }, [gameDimensions]);
+  //   // Reset the position as game dimensions changed
+  //   setPlayerPosition({
+  //     left: clientWidth / 2,
+  //     top: clientHeight / 2
+  //   });
+  // }, [gameDimensions]);
 
   return (
     <div
@@ -76,6 +76,7 @@ function TumblingArrayGame() {
   )
 
   function updatePlayerPosition(top, left) {
+    console.log('Update player position', top, left);
     setPlayerPosition({
       top,
       left
