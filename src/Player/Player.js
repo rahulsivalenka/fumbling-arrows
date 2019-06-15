@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Player.css';
 
 function Player(props) {
+  const playerEl = React.createRef();
+
   const arrowKeyCodes = {
     left: 37,
     up: 38,
@@ -22,8 +24,8 @@ function Player(props) {
   useEffect(() => {
     console.log('Player updated');
 
-    const newTop = getNewPosition(props.top, arrowKeyCodes.down, arrowKeyCodes.up, props.containerHeight);
-    const newLeft = getNewPosition(props.left, arrowKeyCodes.right, arrowKeyCodes.left, props.containerWidth);
+    const newTop = getNewPosition(props.top, arrowKeyCodes.down, arrowKeyCodes.up, props.containerHeight, playerEl.current.clientHeight / 2);
+    const newLeft = getNewPosition(props.left, arrowKeyCodes.right, arrowKeyCodes.left, props.containerWidth, playerEl.current.clientWidth / 2);
     props.onPositionChange(newTop, newLeft);
   }, [keysPressed])
 
@@ -33,7 +35,8 @@ function Player(props) {
       style={{
         top: props.top,
         left: props.left
-      }}>
+      }}
+      ref={playerEl}>
 
       {/* Player */}
 
@@ -44,11 +47,11 @@ function Player(props) {
     </div>
   );
 
-  function getNewPosition(currentPosition, addKey, subtractKey, maxValue) {
+  function getNewPosition(currentPosition, addKey, subtractKey, maxValue, offset) {
     var newPosition = parseInt(currentPosition, 10)
       - (keysPressed[subtractKey] ? moveDistancePerInterval : 0)
       + (keysPressed[addKey] ? moveDistancePerInterval : 0);
-    return newPosition < 0 ? 0 : newPosition > maxValue ? maxValue : newPosition;
+    return newPosition - offset < 0 ? 0 + offset : newPosition > maxValue - offset ? maxValue - offset : newPosition;
   }
 
   function keydownHandler({ which }) {
