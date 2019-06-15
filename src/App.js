@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import TumblingArrayGame from './TumblingArrowsGame/TumblingArrowsGame';
 
+const minWindowSize = {
+  height: 500,
+  width: 500
+};
+
 function App() {
   const [windowSize, setWindowSize] = useState({
     height: window.innerHeight,
@@ -42,7 +47,7 @@ function App() {
       width: window.innerWidth
     });
 
-    setMinWindowSizeError(windowSize.height < 600 || windowSize.width < 800);
+    setMinWindowSizeError(windowSize.height < minWindowSize.height || windowSize.width < minWindowSize.width);
   };
 
   function wireResizeEvent() {
