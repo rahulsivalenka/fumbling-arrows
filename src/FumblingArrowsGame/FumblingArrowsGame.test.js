@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TumblingArrayGame from './TumblingArrowsGame';
+import FumblingArrayGame from './FumblingArrowsGame';
 
-describe('TumblingArrowsGame', () => {
+describe('FumblingArrowsGame', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<TumblingArrayGame />, div);
+    ReactDOM.render(<FumblingArrayGame />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 })

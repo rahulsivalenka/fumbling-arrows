@@ -4,9 +4,9 @@ import Instructor from '../Instructor/Instructor';
 import Player from '../Player/Player';
 import Settings from '../Settings/Settings';
 import Timer from '../Timer/Timer';
-import './TumblingArrowsGame.css';
+import './FumblingArrowsGame.css';
 
-function TumblingArrayGame() {
+function FumblingArrayGame() {
   const [gameState, setGameState] = useState({
 
   });
@@ -88,4 +88,4 @@ function TumblingArrayGame() {
   }
 }
 
-export default TumblingArrayGame;
+export default FumblingArrayGame;

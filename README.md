@@ -4,7 +4,7 @@ A game of arrow keys!
 
 ## Game Plan
 
-<img src="Tumbling-Arrows_GamePlan.png"
+<img src="Fumbling-Arrows_GamePlan.png"
      alt="Game Plan" />
 
 ## References

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import TumblingArrayGame from './TumblingArrowsGame/TumblingArrowsGame';
+import FumblingArrayGame from './FumblingArrowsGame/FumblingArrowsGame';
 
 const minWindowSize = {
   height: 500,
@@ -32,7 +32,7 @@ function App() {
               {`Minimum window size for this game has to be 800px  x  600px`}
             </div>
           )
-          : <TumblingArrayGame />
+          : <FumblingArrayGame />
       }
       <span className="App-window-size-info">
         {`${windowSize.width}px  x  ${windowSize.height}px`}
