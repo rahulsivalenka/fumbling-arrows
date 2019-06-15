@@ -9,8 +9,16 @@ A game of arrow keys!
 
 ### Checklist
 
+- [x] Player component
+- [x] Instructor component
+- [ ] Settings component
+- [ ] Timer component
+- [ ] GoalPost component
 - [ ] Make the player bounce when idle with shadow
 - [ ] Make the player hover with shodow when moving
+- [ ] FumblingArrowsGame component 
+  - [x] Basic layout
+  - [ ] State management
 
 ## References
 
