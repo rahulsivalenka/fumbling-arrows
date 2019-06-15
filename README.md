@@ -2,6 +2,11 @@
 
 A game of arrow keys!
 
+## Game Plan
+
+<img src="Tumbling-Arrows_GamePlan.png"
+     alt="Game Plan" />
+
 ## References
 
 * [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
