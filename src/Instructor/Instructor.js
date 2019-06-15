@@ -1,23 +1,24 @@
 import React from 'react';
-import './Instructor.css';
 import Key from '../Key/Key';
+import './Instructor.css';
 
-function Instructor(props) {
+function Instructor({ currentDirections }) {
   const directions = {
     37: 'left',
     38: 'up',
     39: 'right',
     40: 'down'
   };
+
   return (
     <div className="Instructor">
       <div className="Instructor-row">
-        <Key direction="up" />
+        <Key direction={directions[currentDirections[0]]} />
       </div>
       <div className="Instructor-row">
-        <Key direction="left" />
-        <Key direction="down" />
-        <Key direction="right" />
+        <Key direction={directions[currentDirections[1]]} />
+        <Key direction={directions[currentDirections[2]]} />
+        <Key direction={directions[currentDirections[3]]} />
       </div>
     </div>
   )

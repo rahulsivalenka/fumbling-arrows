@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Player.css';
+import { arrowKeyCodes } from '../common/constants';
 
 function Player(props) {
   const playerEl = React.createRef();
 
-  const arrowKeyCodes = {
-    left: 37,
-    up: 38,
-    right: 39,
-    down: 40
-  };
   const moveDistancePerInterval = 3; // in px
 
   const [keysPressed, setKeysPressed] = useState({});

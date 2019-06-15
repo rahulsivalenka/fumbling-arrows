@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { arrowKeyCodes } from '../common/constants';
 import GoalPost from '../GoalPost/GoalPost';
 import Instructor from '../Instructor/Instructor';
 import Player from '../Player/Player';
@@ -7,17 +8,18 @@ import Timer from '../Timer/Timer';
 import './FumblingArrowsGame.css';
 
 function FumblingArrayGame() {
-  const [gameState, setGameState] = useState({
+  const [currentDirections, setCurrentDirections] = useState([arrowKeyCodes.up, arrowKeyCodes.left, arrowKeyCodes.down, arrowKeyCodes.right]);
 
-  });
   const [playerPosition, setPlayerPosition] = useState({
     left: 0,
     top: 0
   });
+
   const [gameDimensions, setGameDimensions] = useState({
     height: 0,
     width: 0
   });
+
   const gameWrapperElRef = React.createRef();
 
   useEffect(() => {
@@ -62,8 +64,11 @@ function FumblingArrayGame() {
       ref={gameWrapperElRef}>
 
       <Settings />
+
       <Timer />
-      <Instructor />
+
+      <Instructor currentDirections={currentDirections} />
+
       <Player
         {...playerPosition}
         {...{
@@ -71,7 +76,9 @@ function FumblingArrayGame() {
           containerHeight: gameDimensions.height
         }}
         onPositionChange={updatePlayerPosition} />
+
       <GoalPost />
+
     </div>
   )
 
