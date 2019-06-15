@@ -26,7 +26,7 @@ function Player(props) {
 
     const newTop = getNewPosition(props.top, arrowKeyCodes.down, arrowKeyCodes.up, props.containerHeight, playerEl.current.clientHeight / 2);
     const newLeft = getNewPosition(props.left, arrowKeyCodes.right, arrowKeyCodes.left, props.containerWidth, playerEl.current.clientWidth / 2);
-    props.onPositionChange(newTop, newLeft);
+    props.onPositionChange && props.onPositionChange(newTop, newLeft);
   }, [keysPressed])
 
   return (

@@ -14,6 +14,13 @@
 
 .Settings,
 .Timer,
+.Instructor,
+.GoalPost {
+  z-index: 9999;
+}
+
+.Settings,
+.Timer,
 .Instructor {
   top: 10px;
 }
@@ -29,6 +36,7 @@
 
 .Instructor {
   right: 10px;
+  opacity: 0.4;
 }
 
 .GoalPost {
