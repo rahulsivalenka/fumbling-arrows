@@ -9,5 +9,6 @@ A game of arrow keys!
 * [Handle window resize in React](https://www.hawatel.com/blog/handle-window-resize-in-react/)
 * [Conditional Rendering](https://www.robinwieruch.de/conditional-rendering-react/)
 * [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
-* [Run useEffect only once](https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once)
+* [Run `useEffect` only once](https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once)
+* [A Complet Guide to `useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/)
 * [How to move div with arrows](https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys)
