@@ -21,7 +21,7 @@ function App() {
     wireResizeEvent();
 
     return cleanup;
-  })
+  }, [])
 
   return (
     <div className="App">
@@ -61,7 +61,7 @@ function App() {
   }
 
   function cleanup() {
-    console.log('Game unmounted');
+    console.log('App unmounted');
     unwireResizeEvent();
   }
 }

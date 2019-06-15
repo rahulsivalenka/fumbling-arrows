@@ -16,3 +16,10 @@ code {
   box-sizing: border-box;
   border: 0.1px solid red;
 } */
+
+.Temp-info {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
