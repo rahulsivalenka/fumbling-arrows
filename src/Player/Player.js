@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Player.css';
 
-const arrowKeyCodes = [37, 38, 39, 40];
-
 function Player(props) {
+  const arrowKeyCodes = {
+    left: 37,
+    up: 38,
+    right: 39,
+    down: 40
+  };
+  const moveDistancePerInterval = 3; // in px
+
   const [keysPressed, setKeysPressed] = useState({});
 
   useEffect(() => {
@@ -11,28 +17,32 @@ function Player(props) {
 
     wireEvents();
     return cleanup;
-  });
+  }, []);
 
   return (
-    <div className="Player" style={{
-      top: props.top,
-      left: props.left
-    }}>
+    <div
+      className="Player"
+      style={{
+        top: props.top,
+        left: props.left
+      }}>
+
       Player
 
       <pre className="Temp-info">
-        {JSON.stringify(keysPressed, null, 2)}
+        {JSON.stringify(props, null, 2)}
       </pre>
+
     </div>
   );
 
-  // function getNewPosition(currentPosition, ) {
+  function getNewPosition(currentPosition, addKey, subtractKey) {
 
-  // }
+  }
 
   function keydownHandler({ which }) {
     console.log('keydown');
-    if (arrowKeyCodes.includes(which)) {
+    if (Object.values(arrowKeyCodes).includes(which)) {
       keysPressed[which] = true;
       setKeysPressed({
         ...keysPressed
@@ -42,7 +52,7 @@ function Player(props) {
 
   function keyupHandler({ which }) {
     console.log('keyup');
-    if (arrowKeyCodes.includes(which)) {
+    if (Object.values(arrowKeyCodes).includes(which)) {
       keysPressed[which] = false;
       setKeysPressed({
         ...keysPressed

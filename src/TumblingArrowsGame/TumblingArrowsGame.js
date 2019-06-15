@@ -14,12 +14,21 @@ function TumblingArrayGame() {
     left: 0,
     top: 0
   });
+  const [gameDimensions, setGameDimensions] = useState({
+    height: 0,
+    width: 0
+  });
   const gameWrapperElRef = React.createRef();
 
   useEffect(() => {
     console.log('Game mounted');
 
     const { clientHeight, clientWidth } = gameWrapperElRef.current;
+
+    setGameDimensions({
+      height: clientHeight,
+      width: clientWidth
+    });
 
     // Set initial position at the center of the game
     setPlayerPosition({
@@ -30,6 +39,23 @@ function TumblingArrayGame() {
     return cleanup;
   }, []);
 
+  useEffect(() => {
+    console.log('Game updated');
+
+    const { clientHeight, clientWidth } = gameWrapperElRef.current;
+
+    setGameDimensions({
+      height: clientHeight,
+      width: clientWidth
+    });
+
+    // Reset the position as game dimensions changed
+    setPlayerPosition({
+      left: clientWidth / 2,
+      top: clientHeight / 2
+    });
+  }, [gameDimensions]);
+
   return (
     <div
       className="Game"
@@ -38,7 +64,13 @@ function TumblingArrayGame() {
       <Settings />
       <Timer />
       <Instructor />
-      <Player {...playerPosition} onPositionChange={updatePlayerPosition}/>
+      <Player
+        {...playerPosition}
+        {...{
+          containerWidth: gameDimensions.width,
+          containerHeight: gameDimensions.height
+        }}
+        onPositionChange={updatePlayerPosition} />
       <GoalPost />
     </div>
   )
