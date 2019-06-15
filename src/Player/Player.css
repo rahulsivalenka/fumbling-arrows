@@ -1,0 +1,6 @@
+.Player {
+  height: 32px;
+  width: 32px;
+  background: red;
+  border-radius: 50%;
+}

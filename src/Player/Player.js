@@ -35,11 +35,11 @@ function Player(props) {
         left: props.left
       }}>
 
-      Player
+      {/* Player */}
 
-      <pre className="Temp-info">
+      {/* <pre className="Temp-info">
         {JSON.stringify(props, null, 2)}
-      </pre>
+      </pre> */}
 
     </div>
   );
