@@ -1,6 +1,6 @@
 # Fumbling Arrows
 
-A game of arrow keys!
+A game of arrow keys! Play with it [here](https://rahul-sivalenka.github.io/fumbling-arrows/). It's still WIP!!
 
 ## Game Plan
 
@@ -30,3 +30,4 @@ A game of arrow keys!
 - [Run `useEffect` only once](https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once)
 - [A Complet Guide to `useEffect`](https://overreacted.io/a-complete-guide-to-useeffect/)
 - [How to move div with arrows](https://stackoverflow.com/questions/4950575/how-to-move-a-div-with-arrow-keys)
+- [How to deploy a create react app to Github pages](https://reactgo.com/deploy-react-app-github-pages/)
