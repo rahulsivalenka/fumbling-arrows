@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fumbling-arrows/precache-manifest.36949d2426ca332a67c6f3bb777a19b6.js"
+  "/fumbling-arrows/precache-manifest.4a31cf5bb4425c7188232c67586d17a3.js"
 );
 
 self.addEventListener('message', (event) => {
