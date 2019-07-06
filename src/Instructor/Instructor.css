@@ -5,4 +5,5 @@
 
 .Key {
   margin: 5px;
+  pointer-events: none;
 }
