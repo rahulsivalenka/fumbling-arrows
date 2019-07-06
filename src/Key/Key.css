@@ -1,47 +1,53 @@
 .Key {
-  box-sizing: border-box;
-  line-height: 25px;
-  font-size: 22px;
-  text-align: center;
-  width: 40px;
-  color: #555;
-  margin: 2px 2px;
-  height: 30px;
-  border-color: #f2f2f2;
-  border-style: solid;
-  text-shadow: 0 0.5px 1px #777, 0 2px 6px #f2f2f2;
-  border-width: 1px;
-  border-radius: 10px;
-  background: -webkit-linear-gradient(top, #f9f9f9 0%, #D2D2D2 80%, #c0c0c0 100%);
-  font-family: sans-serif;
+  perspective: 100px;
   display: inline-block;
-  transition: box-shadow 0.3s ease, transform 0.15s ease;
-  box-shadow: 0 0 1px #888, 0 1px 0 #fff, 0 6px 0 #C0C0C0, 0 8px 17px rgba(68, 68, 68, 0.4), 2px 1px 4px rgba(68, 68, 68, 0.25), -2px 1px 4px rgba(68, 68, 68, 0.25), 0 9px 16px rgba(68, 68, 68, 0.1);
+}
+
+.Key-inner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  background: red;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg) rotateY(10deg) translate3d(0, 0, 1px);
+}
+
+.Key-inner:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: perspective(90px) translate3d(6px, 8px, -3px);
 }
 
 .Key-arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
+  position: absolute;
+  font-size: 4em;
+  font-weight: bold;
+  font-family: serif;
+  margin-top: 18px;
+  transform: translate3d(0, 0, 1px);
 }
 
-.Key-right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
+.Key-arrow.Key-right {
+  transform: rotate(90deg) translate3d(0, 0, 1px);
+  margin-top: 0;
+  margin-right: 18px;
 }
 
-.Key-left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+.Key-arrow.Key-left {
+  transform: rotate(-90deg) translate3d(0, 0, 1px);
+  margin-top: 0;
+  margin-right: -18px;
 }
 
-.Key-up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-
-.Key-down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.Key-arrow.Key-down {
+  transform: rotate(180deg) translate3d(0, 0, 1px);
+  margin-top: -18px;
 }
