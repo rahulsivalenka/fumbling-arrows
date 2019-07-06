@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './Player.css';
 import { arrowKeyCodes } from '../common/constants';
+import './Player.css';
 
 function Player(props) {
   const playerEl = React.createRef();
 
-  const moveDistancePerInterval = 3; // in px
+  const moveDistancePerInterval = 10; // in px
 
   const [keysPressed, setKeysPressed] = useState({});
 
@@ -19,8 +19,11 @@ function Player(props) {
   useEffect(() => {
     console.log('Player updated');
 
-    const newTop = getNewPosition(props.top, arrowKeyCodes.down, arrowKeyCodes.up, props.containerHeight, playerEl.current.clientHeight / 2);
-    const newLeft = getNewPosition(props.left, arrowKeyCodes.right, arrowKeyCodes.left, props.containerWidth, playerEl.current.clientWidth / 2);
+    const topOffset = playerEl.current.clientHeight / 2;
+    const newTop = getNewPosition(props.top, arrowKeyCodes.down, arrowKeyCodes.up, props.containerHeight, topOffset);
+    const leftOffset = playerEl.current.clientWidth / 2;
+    const newLeft = getNewPosition(props.left, arrowKeyCodes.right, arrowKeyCodes.left, props.containerWidth, leftOffset);
+
     props.onPositionChange && props.onPositionChange(newTop, newLeft);
   }, [keysPressed])
 
