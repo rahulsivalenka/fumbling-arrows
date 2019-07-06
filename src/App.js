@@ -18,6 +18,31 @@ function App() {
   useEffect(() => {
     console.log('App mounted');
 
+    function windowResizehandler() {
+      console.log('windowResizehandler');
+      setWindowSize({
+        height: window.innerHeight,
+        width: window.innerWidth
+      });
+
+      setMinWindowSizeError(windowSize.height < minWindowSize.height || windowSize.width < minWindowSize.width);
+    };
+
+    function wireResizeEvent() {
+      console.log('wireResizeEvent');
+      window.addEventListener('resize', windowResizehandler);
+    }
+
+    function unwireResizeEvent() {
+      console.log('unwireResizeEvent');
+      window.removeEventListener('resize', windowResizehandler);
+    }
+
+    function cleanup() {
+      console.log('App unmounted');
+      unwireResizeEvent();
+    }
+
     wireResizeEvent();
 
     return cleanup;
@@ -39,31 +64,6 @@ function App() {
       </span>
     </div>
   );
-
-  function windowResizehandler() {
-    console.log('windowResizehandler');
-    setWindowSize({
-      height: window.innerHeight,
-      width: window.innerWidth
-    });
-
-    setMinWindowSizeError(windowSize.height < minWindowSize.height || windowSize.width < minWindowSize.width);
-  };
-
-  function wireResizeEvent() {
-    console.log('wireResizeEvent');
-    window.addEventListener('resize', windowResizehandler);
-  }
-
-  function unwireResizeEvent() {
-    console.log('unwireResizeEvent');
-    window.removeEventListener('resize', windowResizehandler);
-  }
-
-  function cleanup() {
-    console.log('App unmounted');
-    unwireResizeEvent();
-  }
 }
 
 export default App;

@@ -25,6 +25,10 @@ function FumblingArrayGame() {
   useEffect(() => {
     console.log('Game mounted');
 
+    function cleanup() {
+      console.log('Game unmounted');
+    }
+
     const { clientHeight, clientWidth } = gameWrapperElRef.current;
 
     setGameDimensions({
@@ -88,10 +92,6 @@ function FumblingArrayGame() {
       top,
       left
     })
-  }
-
-  function cleanup() {
-    console.log('Game unmounted');
   }
 }
 
