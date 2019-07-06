@@ -13,12 +13,15 @@ A game of arrow keys! Play with it [here](https://rahul-sivalenka.github.io/fumb
 - [x] Instructor component
 - [ ] Settings component
 - [ ] Timer component
+- [ ] Controls component
 - [ ] GoalPost component
 - [ ] Make the player bounce when idle with shadow
 - [ ] Make the player hover with shodow when moving
 - [ ] FumblingArrowsGame component 
   - [x] Basic layout
   - [ ] State management
+- [ ] Add Credits page if needed
+- [ ] Keyboard shortcuts for Play / Pause / Restart
 
 ## References
 
