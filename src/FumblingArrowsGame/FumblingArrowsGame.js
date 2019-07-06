@@ -20,6 +20,9 @@ function FumblingArrayGame() {
     width: 0
   });
 
+  const [isGamePaused, setIsGamePaused] = useState(false);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+
   const gameWrapperElRef = React.createRef();
 
   useEffect(() => {
@@ -45,23 +48,6 @@ function FumblingArrayGame() {
     return cleanup;
   }, []);
 
-  // useEffect(() => {
-  //   console.log('Game updated');
-
-  //   const { clientHeight, clientWidth } = gameWrapperElRef.current;
-
-  //   setGameDimensions({
-  //     height: clientHeight,
-  //     width: clientWidth
-  //   });
-
-  //   // Reset the position as game dimensions changed
-  //   setPlayerPosition({
-  //     left: clientWidth / 2,
-  //     top: clientHeight / 2
-  //   });
-  // }, [gameDimensions]);
-
   return (
     <div
       className="Game"
@@ -69,7 +55,12 @@ function FumblingArrayGame() {
 
       <Settings />
 
-      <Timer />
+      <button style={{ zIndex: 9999999, position: 'absolute' }} onClick={() => setIsGameStarted(!isGameStarted)}>{isGameStarted ? 'Stop' : 'Start'}</button>
+
+      <Timer {...{
+        isGamePaused,
+        isGameStarted
+      }} />
 
       <Instructor currentDirections={currentDirections} />
 
